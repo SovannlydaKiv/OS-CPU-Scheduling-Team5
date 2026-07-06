@@ -18,6 +18,15 @@ def print_metrics(procs):
     print(f"Average Response Time: {total_rt / n:.2f}")
 
 
+def compute_metrics(procs):
+    for p in procs:
+        if p.start_time is not None:
+            p.response_time = p.start_time - p.arrival
+        if p.completion_time is not None:
+            p.turnaround_time = p.completion_time - p.arrival
+            p.waiting_time = p.turnaround_time - p.burst
+
+
 def get_averages(procs):
     n = len(procs)
     total_wait = sum(p.waiting_time for p in procs)
