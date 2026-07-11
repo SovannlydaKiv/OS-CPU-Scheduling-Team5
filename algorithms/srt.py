@@ -10,7 +10,7 @@ If so, the running process is preempted.
 """
 
 import copy
-from process import Process  # works if you run "python main.py" from the project root
+from process import Process
 
 
 def srt_scheduling(processes):
